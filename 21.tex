@@ -1,0 +1,100 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[a4,12pt,onecolumn]{IEEEtran}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide}
+\usepackage{listings}
+\usepackage{circuitikz}
+\begin{document}
+
+\title{ signals and systems
+\vspace{1cm}
+
+Gate2021-ec-Q52}
+\author{EE23BTECH11014- Devarakonda Guna vaishnavi}
+\maketitle
+\textbf{Question:}
+
+A message signal having peak-to-peak value of $2 \, \text{V}$, root mean square value of $0.1 \, \text{V}$, and bandwidth of $5 \, \text{kHz}$ is sampled and fed to a pulse code modulation (PCM) system that uses a uniform quantizer. The PCM output is transmitted over a channel that can support a maximum transmission rate of $50 \, \text{kbps}$. Assuming that the quantization error is uniformly distributed, calculate the maximum signal-to-quantization noise ratio (rounded off to two decimal places).
+
+solution:
+\section*{Symbols and Descriptions}
+
+The given problem requires finding the maximum signal-to-quantization noise ratio (SQNR) for a PCM system with uniform quantization. We'll follow the steps to calculate it.
+\begin{table}[h!]
+    \centering
+    \input{table/g21.tex}
+    \caption{Input Parameters}
+    \label{table:parameters}
+\end{table}
+
+
+\begin{enumerate}
+    \item \textbf{Calculate Peak and RMS values:}
+    \begin{equation}\label{eq:peak_rms}
+        \text{RMS} = \frac{\text{Peak-to-Peak}}{2\sqrt{2}}
+    \end{equation}
+
+    \item \textbf{Calculate Peak Value:}
+    \begin{equation}\label{eq:peak}
+        \text{Peak} = \sqrt{2} \times \text{RMS}
+    \end{equation}
+
+    \item \textbf{Calculate Quantization Range:}
+    \begin{equation}\label{eq:quant_range}
+        \text{Quantization range} = 2 \times \text{Peak}
+    \end{equation}
+
+    \item \textbf{Determine Number of Bits (N):}
+    \begin{equation}\label{eq:num_bits}
+        N = \log_2(\text{quantization levels})
+    \end{equation}
+
+    \item \textbf{Calculate Step Size:}
+    \begin{equation}\label{eq:step_size}
+        \text{Step size} = \frac{\text{Quantization range}}{2^N}
+    \end{equation}
+
+    \item \textbf{Calculate SQNR:}
+    \begin{equation}\label{eq:sqnr}
+        \text{SQNR} = 6.02 \times N + 1.76
+         \end{equation}
+\end{enumerate}
+
+Now, let's substitute the values and calculate SQNR:
+
+\begin{align*}
+    &\text{RMS} = \frac{2}{2\sqrt{2}} = 0.707 \, \text{V} \\
+    &\text{Peak} = \sqrt{2} \times 0.707 = 1.414 \, \text{V} \\
+    &\text{Quantization range} = 2 \times 1.414 = 2.828 \, \text{V} \\
+    &\text{Sampling rate} = 10 \, \text{kHz} \\
+    &\text{Maximum transmission rate} = 50 \, \text{kbps} \\
+    &N \leq 5 \\
+    &\text{SQNR} = 6.02 \times 5 + 1.76 \\
+    &\text{SQNR} = 30.1 + 1.76 = 31.86
+\end{align*}
+
+$\implies \text{SQNR} = 31.86$
+
+ So, the maximum signal to quantization noise ratio that can be obtained by the PCM system is approximately \(31.86\), rounded off to two decimal places.
+
+
+
+
+
+
+
+
+
+\end{document}
+
